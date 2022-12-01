@@ -3,6 +3,7 @@ package com.suman.example.gatling.simulations.requestsjava;
 import io.gatling.javaapi.core.ChainBuilder;
 
 import java.util.Collections;
+import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 import java.util.stream.Collectors;
@@ -13,14 +14,17 @@ import static io.gatling.javaapi.http.HttpDsl.http;
 import static io.gatling.javaapi.http.HttpDsl.status;
 
 public class FloodIORequestsJava {
-    public static Map<String, String> headers_5 = Map.of(
-            "Accept-Encoding", "gzip, deflate",
-            "Pragma", "no-cache",
-            "Host", "challengers.flood.io",
-            "Origin", "https://challengers.flood.io",
-            "Accept", "text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8",
-            "X-Requested-With", "XMLHttpRequest",
-            "Upgrade-Insecure-Requests", "1");
+    public static Map<String, String> headers_5 = new HashMap<>();
+
+    static {
+        headers_5.put("Accept-Encoding", "gzip, deflate");
+        headers_5.put("Pragma", "no-cache");
+        headers_5.put("Host", "challengers.flood.io");
+        headers_5.put("Origin", "https://challengers.flood.io");
+        headers_5.put("Accept", "text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8");
+        headers_5.put("X-Requested-With", "XMLHttpRequest");
+        headers_5.put("Upgrade-Insecure-Requests", "1");
+    }
 
     public static ChainBuilder dataJSON = exec(http("Step5_GET_Code")
             .get("/code")

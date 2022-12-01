@@ -7,14 +7,14 @@ import io.gatling.javaapi.http.HttpDsl.{http, status}
 import java.util
 
 object requests {
-  var headers_5: util.Map[String, String] = util.Map.of(
-    "Accept-Encoding", "gzip, deflate",
-    "Pragma", "no-cache",
-    "Host", "challengers.flood.io",
-    "Origin", "https://challengers.flood.io",
-    "Accept", "text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8",
-    "X-Requested-With", "XMLHttpRequest",
-    "Upgrade-Insecure-Requests", "1")
+  var headers_5: util.Map[String, String] = new util.HashMap[String, String]()
+  headers_5.put("Accept-Encoding", "gzip, deflate")
+  headers_5.put("Pragma", "no-cache")
+  headers_5.put("Host", "challengers.flood.io")
+  headers_5.put("Origin", "https://challengers.flood.io")
+  headers_5.put("Accept", "text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8")
+  headers_5.put("X-Requested-With", "XMLHttpRequest")
+  headers_5.put("Upgrade-Insecure-Requests", "1")
 
   var dataJSON: ChainBuilder =
     exec(http("Step5_GET_Code").get("/code").check(jsonPath("$.code").saveAs("dataJSON")))
