@@ -25,7 +25,7 @@ public class Application {
     }
 
     private static Stream<String> findAllSimulations() {
-        final String packageName = Application.class.getPackageName();
+        final String packageName = Application.class.getPackage().getName();
         System.out.printf("Finding simulations in %s package%n", packageName);
 
         final Reflections reflections = new Reflections(packageName, new SubTypesScanner(false));
