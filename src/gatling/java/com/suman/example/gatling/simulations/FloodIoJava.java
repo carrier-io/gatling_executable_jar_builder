@@ -11,9 +11,9 @@ import static io.gatling.javaapi.http.HttpDsl.http;
 
 public class FloodIoJava extends Simulation {
 
-    String environment = System.getProperty("environment");
-    int ramp_users = Integer.parseInt(System.getProperty("ramp_users"));
-    int ramp_duration = Integer.parseInt(System.getProperty("ramp_duration"));
+    String environment = System.getenv("environment");
+    int ramp_users = Integer.parseInt(System.getenv("ramp_users"));
+    int ramp_duration = Integer.parseInt(System.getenv("ramp_duration"));
 
     HttpProtocolBuilder webProtocol = http
             .baseUrl(environment)

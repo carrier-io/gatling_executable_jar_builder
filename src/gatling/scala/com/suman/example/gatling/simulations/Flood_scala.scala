@@ -7,10 +7,10 @@ import io.gatling.javaapi.http.HttpDsl.http
 
 
 class Flood_scala extends Simulation {
-  private[simulations] val environment = System.getProperty("environment")
-  private[simulations] val ramp_users = Integer.parseInt(System.getProperty("ramp_users"))
-  private[simulations] val ramp_duration = Integer.parseInt(System.getProperty("ramp_duration"))
-  private[simulations] val duration = Integer.parseInt(System.getProperty("duration"))
+  private[simulations] val environment = System.getenv("environment")
+  private[simulations] val ramp_users = Integer.parseInt(System.getenv("ramp_users"))
+  private[simulations] val ramp_duration = Integer.parseInt(System.getenv("ramp_duration"))
+  private[simulations] val duration = Integer.parseInt(System.getenv("duration"))
 
   private[simulations] val webProtocol = http.baseUrl(environment).disableCaching.disableFollowRedirect
 
